@@ -107,7 +107,7 @@ class Pagamento {
         float troco;
         int i = 0;
         JOptionPane.showMessageDialog(null, "O valor com desconto de 10% é de R$ " + totalDesconto);
-        float recebido = Float.parseFloat(JOptionPane.showInputDialog(null, "Entre com o valor recebido do Cliente"));
+        float recebido = Float.parseFloat(JOptionPane.showInputDialog(null, "O valor da compra é de R$ "+totalDesconto+"\nEntre com o valor recebido do Cliente"));
 
         do {
             troco = recebido - totalDesconto;
@@ -128,7 +128,7 @@ class Pagamento {
         float totalDesconto = (float) (total * 0.95);
         int prestacao;
         do {
-            prestacao = Integer.parseInt(JOptionPane.showInputDialog(null, "Selecione o número de parcelas\n1 - 1x com 5% de desconto R$ " + totalDesconto + "\n2 - 2x R$ " + total / 2 + "\n3 - 3x R$ " + total / 3));
+            prestacao = Integer.parseInt(JOptionPane.showInputDialog(null, "Total R$"+total+"\nSelecione o número de parcelas\n1 - 1x com 5% de desconto R$ " + totalDesconto + "\n2 - 2x R$ " + total / 2 + "\n3 - 3x R$ " + total / 3));
             if (prestacao > 1 && prestacao < 4) {
                 JOptionPane.showMessageDialog(null, "Resumo:\nTotal R$ " + total + "\nPagamento em Cheque em " + prestacao + " prestações de R$ " + total / prestacao);
             }
@@ -152,12 +152,12 @@ class Pagamento {
             s = s + ((i) + "-" + (i) + "x R$ " + parcela[i] + "\n");
         }
         do {
-            prestacao = Integer.parseInt(JOptionPane.showInputDialog(null, "Selecione o número de parcelas\n" + s));
+            prestacao = Integer.parseInt(JOptionPane.showInputDialog(null, "Total R$ "+total+"\nSlecione o número de parcelas\n" + s));
             if (prestacao <= 0 || prestacao > 10) {
                 JOptionPane.showMessageDialog(null, "Opção invalida. Digite novamente");
             } else {
                 //int prestacao = Integer.parseInt(JOptionPane.showInputDialog(null,"Selecione o número de parcelas\n1-1x R$ "+parcela[0]+"\n2-2x R$ "+parcela[1]+"\n3-3x R$ "+parcela[2]+"\n4-4x R$ "+parcela[3]+"\n5-5x R$ "+parcela[4]+"\n6-6x R$ "+parcela[5]+"\n7-7x R$ "+parcela[6]+"\n8-8x R$ "+parcela[7]+"\n9-9x R$ "+parcela[8]+"\n10-10x R$ "+parcela[9]));
-                JOptionPane.showMessageDialog(null, "Resumo:\nTotal R$ " + total + "\n Pagamento com Cartão de Crédito em " + prestacao + "x de " + parcela[(prestacao)]);
+                JOptionPane.showMessageDialog(null, "Resumo:\nTotal R$ " + total + "\n Pagamento com Cartão de Crédito em " + prestacao + "x de R$" + parcela[(prestacao)]);
                 JOptionPane.showMessageDialog(null, "Transação Concluída!");
                 JOptionPane.showMessageDialog(null, "Obrigado e Volte Sempre!");
             }
